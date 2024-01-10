@@ -6,18 +6,24 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            message: 'Template HTML CSS Vue',
+            emails:[],
         };
     },
     mounted(){
-        console.log(axios);
+        
 
-        axios
-            .get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then(function (risposta){
-                console.log(risposta);
-                console.log(risposta.data);
-            });
+        for (let i = 0; i < 10; i++) {
+            axios
+                .get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then((risposta) => {
+                        // console.log(risposta);
+                        console.log(risposta.data);
+
+                        this.email = risposta.data.response;
+                        this.emails.push(risposta.data.response)
+                });
+            
+        }
     }
   // Monto l'istanza di Vue in pagina
 }).mount('#app');
