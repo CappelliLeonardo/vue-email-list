@@ -9,6 +9,7 @@ createApp({
             emails:[],
         };
     },
+
     mounted(){
         
 
@@ -20,7 +21,9 @@ createApp({
                         console.log(risposta.data);
 
                         this.email = risposta.data.response;
-                        this.emails.push(risposta.data.response)
+
+                        this.emails.push(risposta.data.response);
+
                 });
             
         }
